@@ -23,6 +23,7 @@ padding:2px;
 margin:2px;
 display:table;
 margin:auto;
+background:white;
 
 }
 #pCount{
@@ -30,4 +31,27 @@ color:red;
 border: 2px solid blue;
 background-color:pink;
 
+}
+p{
+	z-index:1;
+	position:absolute; 
+	top:34px;"
+	color:red;
+	font-weight: bold;
+	font-size: 22px;
+	border:2px solid black;
+	padding:3px;
+}
+h1{
+
+border:3px solid blue;
+background-color:black;
+text-align: center;
+color:white;
+
+}
+
+body{
+
+	background:#cce6ff;
 }
