@@ -18,9 +18,9 @@
     		var minutes = Math.floor(Math.random() * 59) + 1;
     		return new Date(year, month, day, hours, minutes);
   }
+        //console.log(geemails[i].sender);
 
         for(var i =0; i<geemails.length; i++){
-  
 
         	console.log(geemails[i].sender);
             console.log(geemails[i].subject);
@@ -44,13 +44,12 @@
             main.appendChild(divSubj);
 
            var divBody = document.createElement("div");
-            divBody.classname = "dBody";
+            divBody.className = "dBody";
             divBody.innerHTML = geemails[i].body;
             divBody.style.display = "none";
             divSubj.appendChild(divBody);
-
-
         }
+
 
         var parentElem = document.getElementsByClassName("dSubj");
         for(var i = 0; i<parentElem.length; i++)
@@ -59,8 +58,9 @@
         }
         function showBody()
         { 
-           // console.log("test");
+           console.log("test");
            var paraBody = this.querySelectorAll(".dBody")[0];
+            
             if(paraBody.style.display === "none")
             {
                 paraBody.style.display = "block";
@@ -69,8 +69,9 @@
             {
                 paraBody.style.display = "none";
             }
-  
         }
+
+
 
 
       };
