@@ -5,46 +5,49 @@ margin:2px;
 display:table;
 margin-left:auto;
 font-weight: bold;
+
 }
 
 .dSend{
 color: black;
-border:1px solid #BA1645;
+border:2px solid black;
 padding:5px;
 margin:5px;
 display:table;
+font-size:18px;
+
+
 
 
 }
 .dSubj{
 color: black;
-border:2px solid #BA1645;
+border:2px solid black;
 padding:2px;
 margin:2px;
 display:table;
 margin:auto;
-background:white;
+
+
 
 }
-#pCount{
-color:red;
-border: 2px solid blue;
-background-color:pink;
 
-}
 p{
 	z-index:1;
 	position:absolute; 
-	top:34px;"
-	color:red;
+	top:40px;"
+	
 	font-weight: bold;
-	font-size: 22px;
-	border:2px solid black;
+	font-size: 15px;
+	border:3px solid black;
 	padding:3px;
+	background-color:#800080;
+	color:white;
+	
 }
 h1{
 
-border:3px solid blue;
+border:3px solid #800080;
 background-color:black;
 text-align: center;
 color:white;
@@ -53,5 +56,5 @@ color:white;
 
 body{
 
-	background:#cce6ff;
+	background:#ebe0eb;
 }
