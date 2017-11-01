@@ -19,37 +19,6 @@
     		var minutes = Math.floor(Math.random() * 59) + 1;
     		return new Date(year, month, day, hours, minutes);
             }
-            
-
-
-/*Testing code:*/
-
-    function loadGeeMails(){
-    for (var i = 0; i < 10; i++){
-    var message = generateMessage();
-    window.geemails.push(message);
-        }
-    }
-
-  function generateMessage(date){
-    var message = {};
-    message.date = date || getRandomDate();
-    message.subject = getRandomElement(subject);
-    message.sender = getRandomElement(sender);
-    message.body = getRandomElement(body);
-    return message;
-  }
-
-  function getRandomElement(arr){
-    return arr[Math.floor(Math.random() * arr.length)];
-  }
-
-  function getNewMessage(){
-    var now = new Date();
-    return generateMessage(now);
-  }
-
-/*Testing code^*/
 
 
 
@@ -87,12 +56,7 @@
             divSubj.appendChild(divBody);
             count ++;
         }
-        var para = document.createElement("p");
-        var pCount = document.createTextNode("Inbox: " + count);
-        para.appendChild(pCount);
-        document.body.appendChild(para);
-
-
+      
 
 
         var parentElem = document.getElementsByClassName("dSubj");
@@ -117,18 +81,71 @@
 
 
 
-/*Testing code*/
+        var counter = 0;
+        
+        var myVar = setInterval(moreMessage,1000);
+
+        function moreMessage(){
+
+            console.log(getNewMessage());
+            
+            counter++;
+
+            var x = count + counter;
+            var para = document.createElement("p");
+            var pCount = document.createTextNode("Inbox: " + (x));
+            para.appendChild(pCount);
+            document.body.appendChild(para);
+
+            var TEST = getNewMessage();
+
+            var divSend2 = document.createElement("div");
+            divSend2.className = "dSend2";
+            divSend2.innerHTML = TEST.sender;
+            main.appendChild(divSend2);
 
 
-          for(var j = 0; j <geemails.length;j++)
-        {
-            var myVar = setInterval(getNewMessage, 1000);
+            var divDate2 = document.createElement("div");
+            divDate2.className = "dDate2";
+            divDate2.innerHTML = TEST.date;
+            main.appendChild(divDate2);
 
+            var divSubj2 = document.createElement("div");
+            divSubj2.className = "dSubj2";
+            divSubj2.innerHTML = TEST.subject;
+            main.appendChild(divSubj2);
 
+           var divBody2 = document.createElement("div");
+            divBody2.className = "dBody2";
+            divBody2.innerHTML = TEST.body;
+            divBody2.style.display = "none";
+            divSubj2.appendChild(divBody2);
+            
+            
 
         }
-
-/*Testing code^*/
+        
+         var parentElem2 = document.getElementsByClassName("dSubj2");
+        for(var k = 0; k<parentElem2.length; k++)
+        {
+            parentElem2[k].addEventListener("click", showBody2);
+        }
+        function showBody2()
+        { 
+           
+           var paraBody2 = this.querySelectorAll(".dBody2")[0];
+            
+            if(paraBody2.style.display === "none")
+            {
+                paraBody2.style.display = "block";
+            }
+            else
+            {
+                paraBody2.style.display = "none";
+            }
+        }
+        
+            
 
 
 
