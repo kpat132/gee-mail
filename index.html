@@ -121,14 +121,11 @@
             divBody2.style.display = "none";
             divSubj2.appendChild(divBody2);
             
-            
 
-        }
-        
-         var parentElem2 = document.getElementsByClassName("dSubj2");
-        for(var k = 0; k<parentElem2.length; k++)
+            var parentElem2 = document.getElementsByClassName("dSubj2");
+        for(var i = 0; i<parentElem2.length; i++)
         {
-            parentElem2[k].addEventListener("click", showBody2);
+            parentElem2[i].addEventListener("click", showBody2);
         }
         function showBody2()
         { 
@@ -144,6 +141,10 @@
                 paraBody2.style.display = "none";
             }
         }
+            
+
+        }
+
         
             
 
