@@ -1,35 +1,32 @@
 <html>
     <head>
-        <h1>Mail Application</h1>
+        <h1 id = "heading"></h1>
         <script src="js/mail-generator.js"></script>
         <link href="css/style.css" rel="stylesheet" media="screen">
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        console.log(window.geemails);  //Array of Objects
+        console.log(window.geemails); 
+
+        var count = 0; //Count for inbox
+
+        //Asks the user for name that will be added to webpage:     
+        var name = prompt("Welcome User! Please sign in with your name!");  
+        heading.innerHTML = "Welcome back, " + name + "!";
         
-            function getRandomDate()
-            {
-            var year = 2013;
-            var month = Math.floor(Math.random() * 12) + 1;
-            var day = Math.floor(Math.random() * 30) + 1;
-            var hours = Math.floor(Math.random() * 12) + 1;
-            var minutes = Math.floor(Math.random() * 59) + 1;
-            return new Date(year, month, day, hours, minutes);
-            }
-        var count = 0;
-       
+        
+       //Creates div elements and puts in information from mail-generator 
         for(var i =0; i<geemails.length; i++){
             console.log(geemails[i].sender);
             console.log(geemails[i].subject);
-            console.log(geemails[i].body);
-            console.log(getRandomDate(2013,Math.floor(Math.random() * 12) + 1,Math.floor(Math.random() * 30) + 1,Math.floor(Math.random() * 12) + 1,Math.floor(Math.random() * 59) + 1)); 
+            console.log(geemails[i].body); 
 
             var divDate = document.createElement("div");
             divDate.className = "dDate";
             divDate.innerHTML = getRandomDate();
             main.appendChild(divDate);
+
             var divSend = document.createElement("div");
             divSend.className = "dSend";
             divSend.innerHTML = geemails[i].sender;
@@ -46,82 +43,89 @@
             count ++;
         }
       
+        //Toggle Function for parent/child
         var parentElem = document.getElementsByClassName("dSend");
-        for(var i = 0; i<parentElem.length; i++)
-        {
+        for(var i = 0; i<parentElem.length; i++){
+
             parentElem[i].addEventListener("click", showBody);
         }
-        function showBody()
-        { 
+        function showBody(){ 
            
            var paraBody = this.querySelectorAll(".dBody")[0];
-
             
-            if(paraBody.style.display === "none")
-            {
+            if(paraBody.style.display === "none"){
+
                 paraBody.style.display = "block";
-            }
-            else
-            {
+
+            }else{
+
                 paraBody.style.display = "none";
             }
         }
-        var counter = 0;
+
+        var counter = 0; //Counter for inbox
         
+        //Paragraph for inbox box that shows the amount of mail that has been generated
+        var inbox = document.createElement("p");
+            inbox.className = "counter";
+            inbox.innerHTML = "Inbox: " + count;
+            main.appendChild(inbox);
+
+        //SetInterval takes in function and iterates it 1 sec at a time
         var myVar = setInterval(moreMessage,1000);
         function moreMessage(){
             console.log(getNewMessage());
-            
+            var newMess = getNewMessage();
+
+            //Changes html element p with new inbox information
             counter++;
             var x = count + counter;
-            var para = document.createElement("p");
-            var pCount = document.createTextNode("Inbox: " + (x));
-            para.appendChild(pCount);
-            document.body.appendChild(para);
-
-            var TEST = getNewMessage();
+            inbox.innerHTML = "Inbox: " + x; 
             
+            //Newly generated mail in div elements
             var divDate2 = document.createElement("div");
             divDate2.className = "dDate2";
-            divDate2.innerHTML = TEST.date;
+            divDate2.innerHTML = newMess.date;
             main.appendChild(divDate2);
             var divSend2 = document.createElement("div");
             divSend2.className = "dSend2";
-            divSend2.innerHTML = TEST.sender;
+            divSend2.innerHTML = newMess.sender;
             main.appendChild(divSend2);
             var divSubj2 = document.createElement("div");
             divSubj2.className = "dSubj2";
-            divSubj2.innerHTML = TEST.subject;
+            divSubj2.innerHTML = newMess.subject;
             divSend2.appendChild(divSubj2);
            var divBody2 = document.createElement("div");
             divBody2.className = "dBody2";
-            divBody2.innerHTML = TEST.body;
+            divBody2.innerHTML = newMess.body;
             divBody2.style.display = "none";
             divSend2.appendChild(divBody2);
             
-            var parentElem2 = document.getElementsByClassName("dSend2");
-        for(var i = 0; i<parentElem2.length; i++)
-        {
+            //Toggle
+        var parentElem2 = document.getElementsByClassName("dSend2");
+
+        for(var i = 0; i < parentElem2.length; i++){
+
             parentElem2[i].addEventListener("click", showBody2);
+
         }
-        function showBody2()
-        { 
+        function showBody2(){ 
            
-           var paraBody2 = this.querySelectorAll(".dBody2")[0];
+            var paraBody2 = this.querySelectorAll(".dBody2")[0];
             
-            if(paraBody2.style.display === "none")
-            {
+            if(paraBody2.style.display === "none"){
+
                 paraBody2.style.display = "block";
-            }
-            else
-            {
+
+            }else{
+                
                 paraBody2.style.display = "none";
+            
             }
         }
             
         }
-        
-            
+
       };
     </script>
     </head>
