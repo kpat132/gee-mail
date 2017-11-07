@@ -45,6 +45,6 @@
   //load intial GeeMail data to window object
   window.geemails = [];
   window.getNewMessage = getNewMessage;
-  window.getRandomDate = getRandomDate;
+  //window.getRandomDate = getRandomDate;
   loadGeeMails(); 
 })();
